@@ -115,4 +115,4 @@ if st.button("Calcular minhas calorias 🔥", use_container_width=True):
     # CTA final
     st.markdown("---")
     st.markdown("💬 Quer um plano alimentar personalizado?")
-    st.markdown("👉 Me chama no Instagram: @seuuser")
+    st.markdown("👉 Me chama no Instagram: @danipetrangelo_fitness")
