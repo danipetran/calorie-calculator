@@ -102,10 +102,15 @@ if st.button("Calcular minhas calorias 🔥", use_container_width=True):
 
     with col3:
         st.metric("Carboidrato", f"{carbo} g")
-
-    # Estimativa semanal
-    st.markdown("---")
-    st.subheader("Estimativa semanal")
+    if goal == "Emagrecer":
+        ajuste = -500
+    elif goal == "Ganhar massa":
+        ajuste = 500
+    else:
+        ajuste = 0
+        # Estimativa semanal
+        st.markdown("---")
+        st.subheader("Estimativa semanal")
 
     mudanca = ajuste * 7 / 7700
 
