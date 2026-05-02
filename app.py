@@ -45,15 +45,11 @@ goal = st.radio(
     horizontal=True,
 )
 
-if goal in ["Emagrecer", "Ganhar massa"]:
-    intensidade = st.slider(
-        "Intensidade (calorias/dia)",
-        min_value=100,
-        max_value=1000,
-        value=500,
-        step=50,
-    )
-    ajuste = intensidade if goal == "Ganhar massa" else -intensidade
+# Ajuste simples (sem intensidade)
+if goal == "Emagrecer":
+    ajuste = -500
+elif goal == "Ganhar massa":
+    ajuste = 500
 else:
     ajuste = 0
 
@@ -102,15 +98,10 @@ if st.button("Calcular minhas calorias 🔥", use_container_width=True):
 
     with col3:
         st.metric("Carboidrato", f"{carbo} g")
-    if goal == "Emagrecer":
-        ajuste = -500
-    elif goal == "Ganhar massa":
-        ajuste = 500
-    else:
-        ajuste = 0
-        # Estimativa semanal
-        st.markdown("---")
-        st.subheader("Estimativa semanal")
+
+    # Estimativa semanal
+    st.markdown("---")
+    st.subheader("Estimativa semanal")
 
     mudanca = ajuste * 7 / 7700
 
@@ -121,6 +112,7 @@ if st.button("Calcular minhas calorias 🔥", use_container_width=True):
     else:
         st.info(f"Ganho estimado: {mudanca:.2f} kg/semana")
 
-    # CTA
+    # CTA final
     st.markdown("---")
-    st.markdown("💬 Quer um plano personalizado? Me chama no Instagram 👉 @seuuser")
+    st.markdown("💬 Quer um plano alimentar personalizado?")
+    st.markdown("👉 Me chama no Instagram: @seuuser")
